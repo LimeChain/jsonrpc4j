@@ -36,8 +36,6 @@ import static org.springframework.util.ClassUtils.getAllInterfacesForClass;
  * &lt;bean class=&quot;com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceImplExporter&quot;/&gt;
  * &lt;bean class="MyServiceBean"/&gt;
  * </pre>
- * <p>Note that this class replaces {@link AutoJsonRpcServiceExporter}.  See that class' javadoc
- * for details.</p>
  */
 @SuppressWarnings("unused")
 public class AutoJsonRpcServiceImplExporter implements BeanFactoryPostProcessor {
@@ -50,7 +48,6 @@ public class AutoJsonRpcServiceImplExporter implements BeanFactoryPostProcessor 
 
 	private ObjectMapper objectMapper;
 	private ErrorResolver errorResolver = null;
-	private Boolean registerTraceInterceptor;
 	private boolean backwardsCompatible = true;
 	private boolean rethrowExceptions = false;
 	private boolean allowExtraParams = false;
@@ -181,11 +178,7 @@ public class AutoJsonRpcServiceImplExporter implements BeanFactoryPostProcessor 
 		if (invocationListener != null) {
 			builder.addPropertyValue("invocationListener", invocationListener);
 		}
-		
-		if (registerTraceInterceptor != null) {
-			builder.addPropertyValue("registerTraceInterceptor", registerTraceInterceptor);
-		}
-		
+
 		if (httpStatusCodeProvider != null) {
 			builder.addPropertyValue("httpStatusCodeProvider", httpStatusCodeProvider);
 		}
@@ -279,15 +272,6 @@ public class AutoJsonRpcServiceImplExporter implements BeanFactoryPostProcessor 
 	 */
 	public void setAllowLessParams(boolean allowLessParams) {
 		this.allowLessParams = allowLessParams;
-	}
-	
-	/**
-	 * See {@link org.springframework.remoting.support.RemoteExporter#setRegisterTraceInterceptor(boolean)}
-	 *
-	 * @param registerTraceInterceptor the registerTraceInterceptor value to set
-	 */
-	public void setRegisterTraceInterceptor(boolean registerTraceInterceptor) {
-		this.registerTraceInterceptor = registerTraceInterceptor;
 	}
 	
 	/**
