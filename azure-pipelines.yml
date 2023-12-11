@@ -22,7 +22,7 @@ stages:
               versionSpec: "17"
               jdkArchitectureOption: "x64"
               jdkSourceOption: AzureStorage
-              azureResourceManagerEndpoint: AzureManagerEndpoint-commons
+              azureResourceManagerEndpoint: AzureManagerEndpoint-jsonrpc4j
               azureStorageAccountName: lendicohost
               azureContainerName: openjdk
               azureCommonVirtualFile: "zulu17.38.21-ca-jdk17.0.5-linux_x64.tar.gz"
