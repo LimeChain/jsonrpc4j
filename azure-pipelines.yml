@@ -52,7 +52,7 @@ stages:
           - task: Maven@3
             inputs:
               mavenPomFile: 'pom.xml'
-              options: 'deploy --settings devops/settings.xml -DskipTests=true --batch-mode --update-snapshots $(MAVEN_OPTS)'
+              options: 'deploy --settings settings.xml -DskipTests=true --batch-mode --update-snapshots $(MAVEN_OPTS)'
               publishJUnitResults: false
               javaHomeOption: "JDKVersion"
               jdkVersionOption: "1.17"
